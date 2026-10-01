@@ -36,3 +36,7 @@ jobs:
         run: ./mvnw clean verify
       - name: Show build output
         run: ls -la target
+      - name: Build Docker image
+        run: docker build -t embedded-banking:latest .
+      - name: Show Docker images
+        run: docker images
