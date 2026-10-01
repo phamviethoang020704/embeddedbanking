@@ -1,0 +1,14 @@
+name: Embedded Banking CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "hello"
+
+      - name: Check Java version
+        run: java -version

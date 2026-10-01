@@ -1,0 +1,37 @@
+server:
+  servlet:
+    context-path: /embedded-banking
+  port: 9999
+spring:
+  application:
+    name: embedded-banking
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO}
+    show-sql: ${JPA_SHOW_SQL}
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: ${FLYWAY_ENABLED}
+    baseline-on-migrate: ${FLYWAY_BASELINE_ON_MIGRATE}
+    baseline-version: ${FLYWAY_BASELINE_VERSION}
+    validate-on-migrate: ${FLYWAY_VALIDATE_ON_MIGRATE}
+
+
+
+jwt:
+  secret: ${JWT_SECRET}
+  access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION}
+  refresh-token-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION}
+
